@@ -20,8 +20,8 @@ and call it like this:
 
 or this for maps:
 
-    google.load("maps", "3", {
-        other_params: "sensor=false&libraries=adsense"
+    google.load('maps', '3', {
+        other_params: 'sensor=false&libraries=adsense'
     });
 
 
