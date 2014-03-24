@@ -15,12 +15,13 @@ To use it, just install it on your website and add the script like this:
 <script src="custom-google-loader-1.0.0.min.js"></script>
 and call it like this:
 
-google.load('jquery', '1.11.0');
+    google.load('jquery', '1.11.0');
+
 or this for maps:
 
-google.load("maps", "3", {
-    other_params: "sensor=false&libraries=adsense"
-});
+    google.load("maps", "3", {
+        other_params: "sensor=false&libraries=adsense"
+    });
 
 
 
