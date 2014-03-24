@@ -4,18 +4,12 @@ This is a custom version of google loader that I'm using for GpsTracker. Google'
 
 https://developers.google.com/loader/
 
-does not seem to be supported anymore (jquery is at version 1.7.1 which is a few years old). So what I've done is removed all of the other frameworks that I'm not using (such as mooworks, scriptaculous, etc.) and updated it to jquery version:
+does not seem to be supported anymore (jquery is at version 1.7.1 which is a few years old). So what I've done is removed all of the other frameworks that I'm not using (such as mooworks, scriptaculous, etc.) and updated it to support jquery version 1.11.0 and 2.1.0. I also changed the google urls to https. This version is stripped down and supports jquery and google maps.
 
-1.11.0
-
-and 
-
-2.1.0
-
-I also changed the google urls to https. This version is stripped down and supports jquery and google maps.
-
-I've minified the code using Google's closure minifier set on Simple.
+I've minified the code using Google's closure minifier set on "simple".
 
 http://closure-compiler.appspot.com/home
+
+
 
 
