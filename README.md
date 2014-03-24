@@ -12,7 +12,8 @@ http://closure-compiler.appspot.com/home
 
 To use it, just install it on your website and add the script like this:
 
-<script src="custom-google-loader-1.0.0.min.js"></script>
+    <script src="custom-google-loader-1.0.0.min.js"></script>
+
 and call it like this:
 
     google.load('jquery', '1.11.0');
