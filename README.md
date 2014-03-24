@@ -13,3 +13,9 @@ and
 2.1.0
 
 I also changed the google urls to https. This version is stripped down and supports jquery and google maps.
+
+I've minified the code using Google's closure minifier set on Simple.
+
+http://closure-compiler.appspot.com/home
+
+
