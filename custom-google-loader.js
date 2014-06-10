@@ -15,7 +15,8 @@ if (!window['google']['loader']) {
     google.loader.GoogleLocale = 'www.google.com';
     google.loader.ClientLocation = null;
     google.loader.AdditionalParams = '';
-    (function () {
+    google.loader.Protocol = '';
+    (function() {
         var d = encodeURIComponent,
             g = window,
             h = document;
@@ -44,7 +45,7 @@ if (!window['google']['loader']) {
         var E = {};
 
         function F(a, b) {
-            var c = function () {};
+            var c = function() { };
             c.prototype = b[x];
             a.U = b[x];
             a.prototype = new c
@@ -52,13 +53,13 @@ if (!window['google']['loader']) {
 
         function G(a, b, c) {
             var e = Array[x].slice.call(arguments, 2) || [];
-            return function () {
+            return function() {
                 return a.apply(b, e.concat(Array[x].slice.call(arguments)))
             }
         }
         function H(a) {
             a = Error(a);
-            a.toString = function () {
+            a.toString = function() {
                 return this.message
             };
             return a
@@ -78,7 +79,7 @@ if (!window['google']['loader']) {
             N = {};
         google[z].eval = {};
         K("google.loader.eval", google[z].eval);
-        l(google, function (a, b, c) {
+        l(google, function(a, b, c) {
             function e(a) {
                 var b = a.split(".");
                 if (2 < b[w]) throw H("Module: '" + a + "' not found!");
@@ -86,6 +87,7 @@ if (!window['google']['loader']) {
             }
             var f = a;
             c = c || {};
+            google[z].Protocol = c.protocol;
             if (a instanceof Array || a && "object" == typeof a && "function" == typeof a[B] && "function" == typeof a.reverse) for (var k = 0; k < a[w]; k++) e(a[k]);
             else e(a);
             if (a = M[":" + f]) {
@@ -96,7 +98,7 @@ if (!window['google']['loader']) {
             } else throw H("Module: '" + f + "' not found!");
         });
         K("google.load", google.load);
-        google.T = function (a, b) {
+        google.T = function(a, b) {
             b ? (0 == O[w] && (P(g, "load", Q), !D("msie") && !D("safari") && !D("konqueror") && D("mozilla") || g.opera ? g.addEventListener("DOMContentLoaded", Q, !1) : D("msie") ? h.write("<script defer onreadystatechange='google.loader.domReady()' src=//:>\x3c/script>") : (D("safari") || D("konqueror")) && g[y](S, 10)), O[m](a)) : P(g, "load", a)
         };
         K("google.setOnLoadCallback", google.T);
@@ -110,12 +112,12 @@ if (!window['google']['loader']) {
             }
         }
         function aa(a) {
-            return function () {
+            return function() {
                 for (var b = 0; b < a[w]; b++) a[b]()
             }
         }
         var O = [];
-        google[z].P = function () {
+        google[z].P = function() {
             var a = g.event.srcElement;
             "complete" == a.readyState && (a.onreadystatechange = null, a.parentNode.removeChild(a), Q())
         };
@@ -133,7 +135,7 @@ if (!window['google']['loader']) {
             for (var a = 0; a < O[w]; a++) O[a]();
             O.length = 0
         }
-        google[z].d = function (a, b, c) {
+        google[z].d = function(a, b, c) {
             if (c) {
                 var e;
                 "script" == a ? (e = h.createElement("script"), e.type = "text/javascript", e.src = b) : "css" == a && (e = h.createElement("link"), e.type = "text/css", e.href = b, e.rel = "stylesheet");
@@ -142,26 +144,26 @@ if (!window['google']['loader']) {
             } else "script" == a ? h.write('<script src="' + b + '" type="text/javascript">\x3c/script>') : "css" == a && h.write('<link href="' + b + '" type="text/css" rel="stylesheet"></link>')
         };
         K("google.loader.writeLoadTag", google[z].d);
-        google[z].Q = function (a) {
+        google[z].Q = function(a) {
             N = a
         };
         K("google.loader.rfm", google[z].Q);
-        google[z].S = function (a) {
-            for (var b in a)"string" == typeof b && b && ":" == b[q](0) && !M[b] && (M[b] = new T(b[A](1), a[b]))
+        google[z].S = function(a) {
+            for (var b in a) "string" == typeof b && b && ":" == b[q](0) && !M[b] && (M[b] = new T(b[A](1), a[b]))
         };
         K("google.loader.rpl", google[z].S);
-        google[z].R = function (a) {
+        google[z].R = function(a) {
             if ((a = a.specs) && a[w]) for (var b = 0; b < a[w]; ++b) {
                 var c = a[b];
                 "string" == typeof c ? M[":" + c] = new U(c) : (c = new V(c[u], c.baseSpec, c.customSpecs), M[":" + c[u]] = c)
             }
         };
         K("google.loader.rm", google[z].R);
-        google[z].loaded = function (a) {
+        google[z].loaded = function(a) {
             M[":" + a.module].l(a)
         };
         K("google.loader.loaded", google[z].loaded);
-        google[z].O = function () {
+        google[z].O = function() {
             return "qid=" + ((new Date)[v]().toString(16) + Math.floor(1E7 * Math.random()).toString(16))
         };
         K("google.loader.createGuidArg_", google[z].O);
@@ -178,31 +180,31 @@ if (!window['google']['loader']) {
             this.j = !0;
             this.c = -1
         }
-        U[x].g = function (a, b) {
+        U[x].g = function(a, b) {
             var c = "";
             void 0 != b && (void 0 != b.language && (c += "&hl=" + d(b.language)), void 0 != b.nocss && (c += "&output=" + d("nocss=" + b.nocss)), void 0 != b.nooldnames && (c += "&nooldnames=" + d(b.nooldnames)), void 0 != b.packages && (c += "&packages=" + d(b.packages)), null != b.callback && (c += "&async=2"), void 0 != b.style && (c += "&style=" + d(b.style)), void 0 != b.noexp && (c += "&noexp=true"), void 0 != b.other_params && (c += "&" + b.other_params));
             if (!this.j) {
                 google[this.b] && google[this.b].JSHash && (c += "&sig=" + d(google[this.b].JSHash));
                 var e = [],
                     f;
-                for (f in this.n)":" == f[q](0) && e[m](f[A](1));
-                for (f in this.e)":" == f[q](0) && this.e[f] && e[m](f[A](1));
+                for (f in this.n) ":" == f[q](0) && e[m](f[A](1));
+                for (f in this.e) ":" == f[q](0) && this.e[f] && e[m](f[A](1));
                 c += "&have=" + d(e[B](","))
             }
             return google[z][t] + "/?file=" + this.b + "&v=" + a + google[z].AdditionalParams + c
         };
-        U[x].t = function (a) {
+        U[x].t = function(a) {
             var b = null;
             a && (b = a.packages);
             var c = null;
             if (b) if ("string" == typeof b) c = [a.packages];
-            else if (b[w]) for (c = [], a = 0; a < b[w]; a++)"string" == typeof b[a] && c[m](b[a][n](/^\s*|\s*$/, "")[C]());
+            else if (b[w]) for (c = [], a = 0; a < b[w]; a++) "string" == typeof b[a] && c[m](b[a][n](/^\s*|\s*$/, "")[C]());
             c || (c = ["default"]);
             b = [];
             for (a = 0; a < c[w]; a++) this.n[":" + c[a]] || b[m](c[a]);
             return b
         };
-        l(U[x], function (a, b) {
+        l(U[x], function(a, b) {
             var c = this.t(b),
                 e = b && null != b.callback;
             if (e) var f = new W(b.callback);
@@ -227,8 +229,8 @@ if (!window['google']['loader']) {
                 for (p = 0; p < k[w]; p++) s = k[p], this.e[":" + s] = !0
             }
         });
-        U[x].l = function (a) {
-            -1 != this.c && (X("al_" + this.b, "jl." + ((new Date)[v]() - this.c), !0), this.c = -1);
+        U[x].l = function(a) {
+-1 != this.c && (X("al_" + this.b, "jl." + ((new Date)[v]() - this.c), !0), this.c = -1);
             this.o = this.o.concat(a.components);
             google[z][this.b] || (google[z][this.b] = {});
             google[z][this.b].packages = this.o.slice(0);
@@ -242,10 +244,10 @@ if (!window['google']['loader']) {
                 }
             }
         };
-        U[x].m = function (a, b) {
+        U[x].m = function(a, b) {
             return 0 == this.t(b)[w]
         };
-        U[x].s = function () {
+        U[x].s = function() {
             return !0
         };
 
@@ -254,11 +256,11 @@ if (!window['google']['loader']) {
             this.q = {};
             this.r = 0
         }
-        W[x].B = function (a) {
+        W[x].B = function(a) {
             this.r++;
             this.q[":" + a] = !0
         };
-        W[x].C = function (a) {
+        W[x].C = function(a) {
             this.q[":" + a] && (this.q[":" + a] = !1, this.r--, 0 == this.r && g[y](this.F, 0))
         };
 
@@ -271,38 +273,39 @@ if (!window['google']['loader']) {
             google[z].v[this[u]] = G(this.l, this)
         }
         F(V, U);
-        l(V[x], function (a, b) {
+        l(V[x], function(a, b) {
             var c = b && null != b.callback;
             c ? (this.k[m](b.callback), b.callback = "google.loader.callbacks." + this[u]) : this.h = !0;
             b && b.autoloaded || google[z].d("script", this.g(a, b), c)
         });
-        V[x].m = function (a, b) {
+        V[x].m = function(a, b) {
             return b && null != b.callback ? this.u : this.h
         };
-        V[x].l = function () {
+        V[x].l = function() {
             this.u = !0;
             for (var a = 0; a < this.k[w]; a++) g[y](this.k[a], 0);
             this.k = []
         };
-        var Y = function (a, b) {
-                return a.string ? d(a.string) + "=" + d(b) : a.regex ? b[n](/(^.*$)/, a.regex) : ""
-            };
-        V[x].g = function (a, b) {
+        var Y = function(a, b) {
+            return a.string ? d(a.string) + "=" + d(b) : a.regex ? b[n](/(^.*$)/, a.regex) : ""
+        };
+        V[x].g = function(a, b) {
             return this.G(this.w(a), a, b)
         };
-        V[x].G = function (a, b, c) {
+        V[x].G = function(a, b, c) {
             var e = "";
             a.key && (e += "&" + Y(a.key, google[z].ApiKey));
             a.version && (e += "&" + Y(a.version, b));
-            b = google[z].Secure && a.ssl ? a.ssl : a.uri;
+            p = (typeof google[z].Protocol == "undefined") ? "https:" : google[z].Protocol;
+            b = google[z].Secure && a.ssl ? a.ssl : p + a.uri;
             if (null != c) for (var f in c) a.params[f] ? e += "&" + Y(a.params[f], c[f]) : "other_params" == f ? e += "&" + c[f] : "base_domain" == f && (b = "http://" + c[f] + a.uri[A](a.uri[r]("/", 7)));
-            google[this[u]] = {}; - 1 == b[r]("?") && e && (e = "?" + e[A](1));
+            google[this[u]] = {}; -1 == b[r]("?") && e && (e = "?" + e[A](1));
             return b + e
         };
-        V[x].s = function (a) {
+        V[x].s = function(a) {
             return this.w(a).deferred
         };
-        V[x].w = function (a) {
+        V[x].w = function(a) {
             if (this.p) for (var b = 0; b < this.p[w]; ++b) {
                 var c = this.p[b];
                 if (RegExp(c.pattern).test(a)) return c
@@ -316,15 +319,15 @@ if (!window['google']['loader']) {
             this.h = !1
         }
         F(T, U);
-        l(T[x], function (a, b) {
+        l(T[x], function(a, b) {
             this.h = !0;
             google[z].d("script", this.g(a, b), !1)
         });
-        T[x].m = function () {
+        T[x].m = function() {
             return this.h
         };
-        T[x].l = function () {};
-        T[x].g = function (a, b) {
+        T[x].l = function() { };
+        T[x].g = function(a, b) {
             if (!this.i.versions[":" + a]) {
                 if (this.i.aliases) {
                     var c = this.i.aliases[":" + a];
@@ -334,16 +337,16 @@ if (!window['google']['loader']) {
             }
             return google[z].GoogleApisBase + "/libs/" + this.b + "/" + a + "/" + this.i.versions[":" + a][b && b.uncompressed ? "uncompressed" : "compressed"]
         };
-        T[x].s = function () {
+        T[x].s = function() {
             return !1
         };
         var ca = !1,
             Z = [],
             da = (new Date)[v](),
-            fa = function () {
+            fa = function() {
                 ca || (P(g, "unload", ea), ca = !0)
             },
-            ga = function (a, b) {
+            ga = function(a, b) {
                 fa();
                 if (!(google[z].Secure || google[z].Options && !1 !== google[z].Options.csi)) {
                     for (var c = 0; c < a[w]; c++) a[c] = d(a[c][C]()[n](/[^a-z0-9_.]+/g, "_"));
@@ -351,10 +354,10 @@ if (!window['google']['loader']) {
                     g[y](G($, null, "//gg.google.com/csi?s=uds&v=2&action=" + a[B](",") + "&it=" + b[B](",")), 1E4)
                 }
             },
-            X = function (a, b, c) {
+            X = function(a, b, c) {
                 c ? ga([a], [b]) : (fa(), Z[m]("r" + Z[w] + "=" + d(a + (b ? "|" + b : ""))), g[y](ea, 5 < Z[w] ? 0 : 15E3))
             },
-            ea = function () {
+            ea = function() {
                 if (Z[w]) {
                     var a = google[z][t];
                     0 == a[r]("http:") && (a = a[n](/^http:/, "https:"));
@@ -362,11 +365,11 @@ if (!window['google']['loader']) {
                     Z.length = 0
                 }
             },
-            $ = function (a) {
+            $ = function(a) {
                 var b = new Image,
                     c = $.H++;
                 $.A[c] = b;
-                b.onload = b.onerror = function () {
+                b.onload = b.onerror = function() {
                     delete $.A[c]
                 };
                 b.src = a;
@@ -385,7 +388,7 @@ if (!window['google']['loader']) {
         {
             "name": "maps",
             "baseSpec": {
-                "uri": "https://maps.google.com/maps?file\u003dgoogleapi",
+                "uri": "//maps.google.com/maps?file\u003dgoogleapi",
                 "ssl": "https://maps-api-ssl.google.com/maps?file\u003dgoogleapi",
                 "key": {
                     "string": "key"
@@ -404,7 +407,7 @@ if (!window['google']['loader']) {
                 }
             },
             "customSpecs": [{
-                "uri": "https://maps.googleapis.com/maps/api/js",
+                "uri": "//maps.googleapis.com/maps/api/js",
                 "ssl": "https://maps.googleapis.com/maps/api/js",
                 "version": {
                     "string": "v"
@@ -419,27 +422,27 @@ if (!window['google']['loader']) {
                     }
                 },
                 "pattern": "^(3|3..*)$"
-            }]
-        }]
-    });
-    google.loader.rpl({
-        ":jquery": {
-            "versions": {
-                ":2.1.0": {
-                    "uncompressed": "jquery.js",
-                    "compressed": "jquery.min.js"
-                },
-                ":1.11.0": {
-                    "uncompressed": "jquery.js",
-                    "compressed": "jquery.min.js"
+}]
+}]
+            });
+            google.loader.rpl({
+                ":jquery": {
+                    "versions": {
+                        ":2.1.0": {
+                            "uncompressed": "jquery.js",
+                            "compressed": "jquery.min.js"
+                        },
+                        ":1.11.0": {
+                            "uncompressed": "jquery.js",
+                            "compressed": "jquery.min.js"
+                        }
+                    },
+                    "aliases": {
+                        ":1": "1.11.0",
+                        ":1.11": "1.11.0",
+                        ":2": "2.1.0",
+                        ":2.1": "2.1.0"
+                    }
                 }
-            },
-            "aliases": {
-                ":1": "1.11.0",
-                ":1.11": "1.11.0",
-                ":2": "2.1.0",
-                ":2.1": "2.1.0"
-            }
+            });
         }
-    });
-}
